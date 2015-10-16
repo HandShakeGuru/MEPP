@@ -55,7 +55,6 @@ class ViewController: NSViewController {
     @IBOutlet weak var psqlStatus: NSLevelIndicator!
     
     @IBOutlet weak var startNginxButton: NSButton!
-    @IBOutlet weak var stopNginxButton: NSButton!
     @IBOutlet weak var restartNginxButton: NSButton!
     
     @IBOutlet weak var startPHPButton: NSButton!
@@ -63,41 +62,34 @@ class ViewController: NSViewController {
     @IBOutlet weak var restartPHPButton: NSButton!
     
     @IBOutlet weak var startPsqlButton: NSButton!
-    @IBOutlet weak var stopPsqlButton: NSButton!
     @IBOutlet weak var restartPsqlButton: NSButton!
     
     func refreshStatuses() {
         if nginxIsRunning() {
             nginxStatus.intValue = 3
-            startNginxButton.enabled = false
-            stopNginxButton.enabled = true
+            startNginxButton.title = "Stop"
             restartNginxButton.enabled = true
         } else {
             nginxStatus.intValue = 1
-            startNginxButton.enabled = true
-            stopNginxButton.enabled = false
+            startNginxButton.title = "Start"
             restartNginxButton.enabled = false
         }
         if phpIsRunning() {
             phpStatus.intValue = 3
-            startPHPButton.enabled = false
-            stopPHPButton.enabled = true
+            startPHPButton.title = "Stop"
             restartPHPButton.enabled = true
         } else {
             phpStatus.intValue = 1
-            startPHPButton.enabled = true
-            stopPHPButton.enabled = false
+            startPHPButton.title = "Start"
             restartPHPButton.enabled = false
         }
         if psqlIsRunning() {
             psqlStatus.intValue = 3
-            startPsqlButton.enabled = false
-            stopPsqlButton.enabled = true
+            startPsqlButton.title = "Stop"
             restartPsqlButton.enabled = true
         } else {
             psqlStatus.intValue = 1
-            startPsqlButton.enabled = true
-            stopPsqlButton.enabled = false
+            startPsqlButton.title = "Start"
             restartPsqlButton.enabled = false
         }
     }
@@ -116,31 +108,31 @@ class ViewController: NSViewController {
     
     
     @IBAction func startNginx(sender: AnyObject) {
-        NSAppleScript(source: "do shell script \"sudo /usr/local/bin/nginx\" with administrator " +
-            "privileges")!.executeAndReturnError(nil)
+        if startNginxButton.title == "Start" {
+            NSAppleScript(source: "do shell script \"sudo /usr/local/bin/nginx\" with administrator " +
+                "privileges")!.executeAndReturnError(nil)
+        } else {
+            NSAppleScript(source: "do shell script \"sudo /usr/local/bin/nginx -s stop\" with administrator " +
+                "privileges")!.executeAndReturnError(nil)
+        }
         refreshStatuses()
     }
 
-    @IBAction func stopNginx(sender: AnyObject) {
-        NSAppleScript(source: "do shell script \"sudo /usr/local/bin/nginx -s stop\" with administrator " +
-            "privileges")!.executeAndReturnError(nil)
-        refreshStatuses()
-    }
     @IBAction func restartNginx(sender: AnyObject) {
         NSAppleScript(source: "do shell script \"sudo /usr/local/bin/nginx -s stop && sudo /usr/local/bin/nginx\" with administrator " +
             "privileges")!.executeAndReturnError(nil)
         refreshStatuses()
     }
     @IBAction func startPHP(sender: AnyObject) {
-        NSAppleScript(source: "do shell script \"launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.php55.plist\"")!.executeAndReturnError(nil)
-        refreshStatuses()
-    }
-    @IBAction func stopPHP(sender: AnyObject) {
-        NSAppleScript(source: "do shell script \"launchctl unload -w ~/Library/LaunchAgents/homebrew.mxcl.php55.plist\"")!.executeAndReturnError(nil)
+        if startPHPButton.title == "Start" {
+           NSAppleScript(source: "do shell script \"launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.php*.plist\"")!.executeAndReturnError(nil)
+        } else {
+            NSAppleScript(source: "do shell script \"launchctl unload -w ~/Library/LaunchAgents/homebrew.mxcl.php*.plist\"")!.executeAndReturnError(nil)
+        }
         refreshStatuses()
     }
     @IBAction func restartPHP(sender: AnyObject) {
-        NSAppleScript(source: "do shell script \"launchctl unload -w ~/Library/LaunchAgents/homebrew.mxcl.php55.plist && launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.php55.plist\"")!.executeAndReturnError(nil)
+        NSAppleScript(source: "do shell script \"launchctl unload -w ~/Library/LaunchAgents/homebrew.mxcl.php*.plist && launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.php*.plist\"")!.executeAndReturnError(nil)
         refreshStatuses()
     }
 }
