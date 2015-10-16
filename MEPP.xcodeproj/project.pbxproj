@@ -14,6 +14,7 @@
 		714013BE1BD09A1B0051E4B8 /* LEPPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714013BD1BD09A1B0051E4B8 /* LEPPTests.swift */; };
 		714013C91BD09A1B0051E4B8 /* LEPPUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714013C81BD09A1B0051E4B8 /* LEPPUITests.swift */; };
 		71CC5B921BD0A31400BCF25E /* pipein.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CC5B911BD0A31400BCF25E /* pipein.swift */; settings = {ASSET_TAGS = (); }; };
+		71CC5B941BD0C49000BCF25E /* PreferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CC5B931BD0C49000BCF25E /* PreferenceViewController.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		714013C81BD09A1B0051E4B8 /* LEPPUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LEPPUITests.swift; sourceTree = "<group>"; };
 		714013CA1BD09A1B0051E4B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		71CC5B911BD0A31400BCF25E /* pipein.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = pipein.swift; sourceTree = "<group>"; };
+		71CC5B931BD0C49000BCF25E /* PreferenceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferenceViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 				71CC5B911BD0A31400BCF25E /* pipein.swift */,
 				714013AB1BD09A1B0051E4B8 /* AppDelegate.swift */,
 				714013AD1BD09A1B0051E4B8 /* ViewController.swift */,
+				71CC5B931BD0C49000BCF25E /* PreferenceViewController.swift */,
 				714013AF1BD09A1B0051E4B8 /* Assets.xcassets */,
 				714013B11BD09A1B0051E4B8 /* Main.storyboard */,
 				714013B41BD09A1B0051E4B8 /* Info.plist */,
@@ -258,6 +261,7 @@
 				71CC5B921BD0A31400BCF25E /* pipein.swift in Sources */,
 				714013AE1BD09A1B0051E4B8 /* ViewController.swift in Sources */,
 				714013AC1BD09A1B0051E4B8 /* AppDelegate.swift in Sources */,
+				71CC5B941BD0C49000BCF25E /* PreferenceViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

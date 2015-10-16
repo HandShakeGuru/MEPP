@@ -9,6 +9,8 @@
 import Cocoa
 import Foundation
 
+let defaults = NSUserDefaults.standardUserDefaults()
+
 func shell(args: String...) -> String {
     let task = NSTask()
     task.launchPath = "/usr/bin/env"
@@ -97,6 +99,17 @@ class ViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if defaults.objectForKey("nginx") == nil {
+            defaults.setObject("/usr/local/bin/nginx", forKey: "nginx")
+        }
+        if defaults.objectForKey("php-fpm") == nil {
+            defaults.setObject("~/Library/LaunchAgents/homebrew.mxcl.php55.plist", forKey: "php-fpm")
+        }
+        if defaults.objectForKey("psql") == nil {
+            defaults.setObject("", forKey: "psql")
+        }
+        
+        
         refreshStatuses()
     }
 
@@ -109,30 +122,30 @@ class ViewController: NSViewController {
     
     @IBAction func startNginx(sender: AnyObject) {
         if startNginxButton.title == "Start" {
-            NSAppleScript(source: "do shell script \"sudo /usr/local/bin/nginx\" with administrator " +
+            NSAppleScript(source: "do shell script \"sudo " + (defaults.objectForKey("nginx")! as! String) + "\" with administrator " +
                 "privileges")!.executeAndReturnError(nil)
         } else {
-            NSAppleScript(source: "do shell script \"sudo /usr/local/bin/nginx -s stop\" with administrator " +
+            NSAppleScript(source: "do shell script \"sudo " + (defaults.objectForKey("nginx")! as! String) + " -s stop\" with administrator " +
                 "privileges")!.executeAndReturnError(nil)
         }
         refreshStatuses()
     }
 
     @IBAction func restartNginx(sender: AnyObject) {
-        NSAppleScript(source: "do shell script \"sudo /usr/local/bin/nginx -s stop && sudo /usr/local/bin/nginx\" with administrator " +
+        NSAppleScript(source: "do shell script \"sudo " + (defaults.objectForKey("nginx")! as! String) + " -s stop && sudo " + (defaults.objectForKey("nginx")! as! String) + "\" with administrator " +
             "privileges")!.executeAndReturnError(nil)
         refreshStatuses()
     }
     @IBAction func startPHP(sender: AnyObject) {
         if startPHPButton.title == "Start" {
-           NSAppleScript(source: "do shell script \"launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.php*.plist\"")!.executeAndReturnError(nil)
+           NSAppleScript(source: "do shell script \"launchctl load -w " + (defaults.objectForKey("php-fpm")! as! String) + "\"")!.executeAndReturnError(nil)
         } else {
-            NSAppleScript(source: "do shell script \"launchctl unload -w ~/Library/LaunchAgents/homebrew.mxcl.php*.plist\"")!.executeAndReturnError(nil)
+            NSAppleScript(source: "do shell script \"launchctl unload -w " + (defaults.objectForKey("php-fpm")! as! String) + "\"")!.executeAndReturnError(nil)
         }
         refreshStatuses()
     }
     @IBAction func restartPHP(sender: AnyObject) {
-        NSAppleScript(source: "do shell script \"launchctl unload -w ~/Library/LaunchAgents/homebrew.mxcl.php*.plist && launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.php*.plist\"")!.executeAndReturnError(nil)
+        NSAppleScript(source: "do shell script \"launchctl unload -w " + (defaults.objectForKey("php-fpm")! as! String) + " && launchctl load -w " + (defaults.objectForKey("php-fpm")! as! String) + "\"")!.executeAndReturnError(nil)
         refreshStatuses()
     }
 }

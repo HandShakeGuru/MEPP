@@ -4,11 +4,15 @@
 <dict>
 	<key>files</key>
 	<dict>
+		<key>Resources/AppIcon.icns</key>
+		<data>
+		9XCygQSSZUb5dfi03iq1RL+I00A=
+		</data>
 		<key>Resources/Base.lproj/Main.storyboardc/Info.plist</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			0bbotfFChHT+17VNq1RL1E7SSVw=
+			AyKXr/b9YPZ+tWe7HodwG8WfrI4=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -17,7 +21,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			cRR/AwMFGGSt+oH3W9h+7lXrhGY=
+			57+MI/DDI2XzckmFhXU3jaaJWR0=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -26,7 +30,16 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			xED1XN1M8w/LUnnuBZFsCft5JlE=
+			cn+Gcr+fu1JuPEBVwyp5lxyBs48=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>Resources/Base.lproj/Main.storyboardc/NSWindowController-wzi-bk-oea.nib</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			NBWuhN4JbkDpxKxt/0+x/w9yx8g=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -35,7 +48,16 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			LKcqhSdIdkfmxjlL6AN0Xr7gtek=
+			aeJQDRLJXYtWXhDxamEbEpNRQGg=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>Resources/Base.lproj/Main.storyboardc/op3-JS-tEr-view-4Dg-jK-7iW.nib</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			tDnlQC3TXyiCMh8/D5Mr2OvshTQ=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -124,11 +146,15 @@
 			<key>requirement</key>
 			<string>cdhash H"ff1bacedbaffc3bf8be49ae65f5e217830b9a716"</string>
 		</dict>
+		<key>Resources/AppIcon.icns</key>
+		<data>
+		9XCygQSSZUb5dfi03iq1RL+I00A=
+		</data>
 		<key>Resources/Base.lproj/Main.storyboardc/Info.plist</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			0bbotfFChHT+17VNq1RL1E7SSVw=
+			AyKXr/b9YPZ+tWe7HodwG8WfrI4=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -137,7 +163,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			cRR/AwMFGGSt+oH3W9h+7lXrhGY=
+			57+MI/DDI2XzckmFhXU3jaaJWR0=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -146,7 +172,16 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			xED1XN1M8w/LUnnuBZFsCft5JlE=
+			cn+Gcr+fu1JuPEBVwyp5lxyBs48=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>Resources/Base.lproj/Main.storyboardc/NSWindowController-wzi-bk-oea.nib</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			NBWuhN4JbkDpxKxt/0+x/w9yx8g=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -155,7 +190,16 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			LKcqhSdIdkfmxjlL6AN0Xr7gtek=
+			aeJQDRLJXYtWXhDxamEbEpNRQGg=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>Resources/Base.lproj/Main.storyboardc/op3-JS-tEr-view-4Dg-jK-7iW.nib</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			tDnlQC3TXyiCMh8/D5Mr2OvshTQ=
 			</data>
 			<key>optional</key>
 			<true/>
