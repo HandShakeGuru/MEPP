@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:LEPP.xcodeproj">
+      location = "self:/Users/garet/Documents/LEPP/MEPP.xcodeproj">
    </FileRef>
 </Workspace>
